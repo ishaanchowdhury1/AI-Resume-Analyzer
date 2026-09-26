@@ -485,10 +485,10 @@ if analyze_btn:
 {", ".join(result.get('missing_skills', []))}
 
 ## Actionable Improvements
-{"".join([f"- {i}\n" for i in result.get('improvements', [])])}
+  {"".join("- " + str(x) + chr(10) for x in result.get("improvements", []))}
 
 ## ATS Formatting Tips
-{"".join([f"- {t}\n" for t in result.get('ats_tips', [])])}
+  {"".join("- " + str(x) + chr(10) for x in result.get("ats_tips", []))}
 """
 
     # Ensure result dictionary contains NO sensitive keys before exporting
