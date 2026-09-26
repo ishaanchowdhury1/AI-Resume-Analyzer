@@ -1,70 +1,99 @@
-# AI Resume Analyzer
 
-An AI-powered resume analyzer that scores your resume against a job description, identifies skill gaps, and gives ATS optimization tips — built with Llama 3.3 70B via Groq and Streamlit. Completely free to use.
+# AI Resume Analyzer & ATS Optimizer
 
----
-
-## What It Does
-
-Upload your resume PDF and paste a job description. The AI analyzes:
-
-- **Match score** — how well your resume fits the role (0–100)
-- **Strengths** — what you're doing right
-- **Missing skills** — gaps between your profile and the job requirements
-- **Improvements** — specific suggestions to strengthen your resume
-- **ATS tips** — how to optimize for applicant tracking systems
-- **Hire recommendation** — Strong Yes / Yes / Maybe / No
-
----
+An ATS (Applicant Tracking System) resume analyzer built with Python and Streamlit. Upload a resume, paste a target job description, and receive a structured analysis of resume relevance, skill gaps, formatting, and improvement opportunities.
 
 ## Live Demo
 
-[Open the app](https://ai-resume-analyzer-ic.streamlit.app)
+**[Open AI Resume Analyzer](https://ai-resume-analyzer-ic.streamlit.app/)**
 
-> Get a free Groq API key at [console.groq.com](https://console.groq.com) — no credit card required.
+## Features
 
----
+- **ATS Match Score:** Estimate how closely a resume matches a target job description.
+- **Keyword Analysis:** Identify matched skills and missing job-related keywords.
+- **Resume Audit:** Review formatting, structure, and ATS compatibility.
+- **Bullet Point Rewriter:** Get suggestions to improve resume bullet points.
+- **Analysis Report:** Export resume analysis results.
+- **Offline Mode:** Use the default ATS analysis without providing an API key.
+- **Optional AI Integration:** Configure an AI provider through Advanced AI Settings, if supported by the app.
+- **Multiple Formats:** PDF, DOCX, DOC, TXT, and Markdown, subject to the app's installed extraction dependencies.
 
-## Local Setup
+## How to Use
+
+1. Open the live demo.
+2. Upload your resume or load the sample resume.
+3. Paste the job description into the target job description box.
+4. Click **Analyze Resume Now**.
+5. Review the match score, keyword gaps, audit results, and improvement suggestions.
+6. Download the analysis report if available.
+
+## Run Locally
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Ishaan20072612/AI-Resume-Analyzer.git
+git clone https://github.com/ishaanchowdhury1/AI-Resume-Analyzer.git
 cd AI-Resume-Analyzer
+```
+
+### 2. Create a virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
+
+### 4. Start the application
+
+```bash
 streamlit run resume_app.py
 ```
 
-Enter your free Groq API key in the sidebar when the app opens.
+Open the local URL displayed in the terminal, usually:
 
----
+`http://localhost:8501`
 
 ## Project Structure
 
-```
-├── resume_app.py       # Streamlit UI
-├── resume_analyzer.py  # Groq + Llama 3.3 analysis logic
-├── requirements.txt    # Dependencies
+```text
+AI-Resume-Analyzer/
+├── resume_app.py       # Streamlit user interface
+├── resume_analyzer.py  # Resume analysis engine
+├── requirements.txt    # Python dependencies
+├── test_app_modes.py   # Application mode tests
+├── .devcontainer/      # Development container configuration
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
----
+## Technology Stack
 
-## Tech Stack
+- Python
+- Streamlit
+- Resume text extraction and document processing
+- Rule-based and keyword-based ATS analysis
+- Optional AI integration, depending on configuration
 
-| Tool | Purpose |
-|------|---------|
-| `groq` | Llama 3.3 70B inference (free) |
-| `pdfplumber` | PDF text extraction |
-| `streamlit` | Web UI |
+## Important Notes
 
----
+The ATS match score is an estimate based on the resume content and the supplied job description. It is not an actual employer ATS score or a guarantee of an interview or job offer.
 
-## Why Groq
-
-Groq provides free API access to Llama 3.3 70B — one of the most capable open-source models available. No credit card required, generous free tier, and extremely fast inference.
-
----
+Upload limits and supported document formats depend on the deployed Streamlit configuration and available dependencies. The offline analysis does not require a personal API key.
 
 ## Author
 
-Ishaan Chowdhury · [@Ishaan20072612](https://github.com/Ishaan20072612)
+**Ishaan Chowdhury**
+
+GitHub: [@ishaanchowdhury1](https://github.com/ishaanchowdhury1)
+
+## License
+
+This project is licensed under the MIT License.
